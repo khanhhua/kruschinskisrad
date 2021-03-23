@@ -48,7 +48,7 @@ export default function KRad({ members = [] }) {
           CANVAS_HALF_WIDTH + PIE_RADIUS
         },200 A ${PIE_RADIUS}, ${PIE_RADIUS} 1,0,0 ${nextX},${nextY} Z`,
         {
-          fill: COLOR_STACK[i],
+          fill: COLOR_STACK[i % COLOR_STACK.length],
           opacity: 1,
         }
       );
