@@ -3,6 +3,8 @@ import React from 'react';
 import MemberForm from './MemberForm';
 import KRad from './KRad';
 
+const PUBLIC_URL = process.env.PUBLIC_URL;
+
 export default function App() {
   React.useEffect(() => {
     const match = window.location.search ? window.location.search.match(/d=(.+)/) : null;
@@ -10,8 +12,8 @@ export default function App() {
       return;
     }
     const state = atob(match[1]);
-    console.log({state});
     const restoredMembers = state.split(',');
+
     setMembers(restoredMembers);
     window.history.replaceState(null, null, '/');
   }, []);
@@ -20,7 +22,8 @@ export default function App() {
   
   const onShareClick = React.useCallback(() => {
     const membersStr = btoa(members.join(','));
-    const url = `${window.location.protocol}//${window.location.host}?d=${membersStr}`;
+    const baseUrl = PUBLIC_URL || `${window.location.protocol}//${window.location.host}`;
+    const url = `${baseUrl}?d=${membersStr}`;
     navigator.clipboard.writeText(url);
   }, [members]);
   

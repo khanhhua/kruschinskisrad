@@ -2,9 +2,21 @@ import React from "react";
 
 export default function MemberForm({ members, onMemberAdd, onMemberRemove, onMemberChange }) {
   const [inputText, setInputText] = React.useState('');
+  const [activeIndex, setActiveIndex] = React.useState(null);
+  const activeInputRef = React.useRef();
+  
   const onChange = React.useCallback((e) => {
-    console.log(`Inner: ${e.target.value} Index: ${e.target.dataset.index}`);
-    onMemberChange(e.target.value, e.target.dataset.index);
+    const {target} = e;
+
+    const selectionStart = target.selectionStart;
+    setTimeout(() => {
+      if (activeInputRef.current) {
+        activeInputRef.current.focus();
+        activeInputRef.current.setSelectionRange(selectionStart, selectionStart);
+      }
+    }, 0);
+
+    onMemberChange(target.value, target.dataset.index);
   });
 
   const onKeyPress = React.useCallback((e) => {
@@ -25,12 +37,28 @@ export default function MemberForm({ members, onMemberAdd, onMemberRemove, onMem
       {members.map((item, index) => (
         <div className="list-group-item" key={item}>
           <div className="list-group-control">
-            <input
+            {index !== activeIndex &&
+            <span
               className="form-control"
+              onClick={() => {
+                setActiveIndex(index);
+                setTimeout(() => {
+                  if (activeInputRef.current) {
+                    activeInputRef.current.focus();
+                  }
+                }, 0);
+              }}
+            >{item}</span>
+            }
+            {index === activeIndex &&
+            <input
+              ref={activeInputRef}
+              className="form-control"
+              value={item}
               data-index={index}
               onChange={onChange}
-              value={item}
             />
+            }
           </div>
           <button
             data-index={index}
