@@ -1,0 +1,20 @@
+.list-group-item .list-group-control {
+  width: calc(100% - 40px);
+  float: left;
+}
+
+#c {
+  &.animating {
+    transition: 3s transform ease-out;    
+  }
+
+  transform: translate(0,0);
+}
+
+#arrow {
+  position: absolute;
+  left: 0;
+  top: 190px;
+  border: 10px solid transparent;
+  border-left: 10px solid #591202;
+}
