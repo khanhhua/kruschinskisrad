@@ -4,11 +4,34 @@ import MemberForm from './MemberForm';
 import KRad from './KRad';
 
 export default function App() {
-  const [members, setMembers] = React.useState(['Tom', 'Jerry', 'Piz']);
+  React.useEffect(() => {
+    const match = window.location.search ? window.location.search.match(/d=(.+)/) : null;
+    if (!match) {
+      return;
+    }
+    const state = atob(match[1]);
+    console.log({state});
+    const restoredMembers = state.split(',');
+    setMembers(restoredMembers);
+    window.history.replaceState(null, null, '/');
+  }, []);
+
+  const [members, setMembers] = React.useState(['Neo', 'Anderson', 'Morpheus']);
+  
+  const onShareClick = React.useCallback(() => {
+    const membersStr = btoa(members.join(','));
+    const url = `${window.location.protocol}//${window.location.host}?d=${membersStr}`;
+    navigator.clipboard.writeText(url);
+  }, [members]);
   
   return (
     <div className="container">
       <h1 className="display-4 mb-5">Kruschinskis Rad</h1>
+      <div className="row">
+        <div className="col-2 offset-md-10">
+          <button className="btn btn-sm btn-primary" onClick={onShareClick}>Copy shared link!</button>
+        </div>
+      </div>
       <div className="row">
         <div className="col-5 offset-md-1">
           <MemberForm

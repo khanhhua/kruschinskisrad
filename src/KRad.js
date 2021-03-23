@@ -16,7 +16,7 @@ function rotate(pie, angle) {
 
 export default function KRad({ members = [] }) {
   React.useEffect(() => {
-    const canvas = new fabric.StaticCanvas("c");
+    const canvas = new fabric.StaticCanvas("c", { width: 400, height: 400 });
 
     if (members.length <= 1) {
       return;
@@ -67,6 +67,10 @@ export default function KRad({ members = [] }) {
       });
       canvas.add(text);
     });
+
+    return () => {
+        canvas.dispose();
+    };
   }, [members]);
   const [rotation, setRotation] = React.useState(0);
   const [className, setClassName] = React.useState("");
@@ -88,8 +92,8 @@ export default function KRad({ members = [] }) {
         }}
         id="c"
         className={className}
-        width="400"
-        height="400"
+        width={400}
+        height={400}
       ></canvas>
     </>
   );
