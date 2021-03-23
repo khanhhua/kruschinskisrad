@@ -15,7 +15,7 @@ export default function App() {
     const restoredMembers = state.split(',');
 
     setMembers(restoredMembers);
-    window.history.replaceState(null, null, '/');
+    window.history.replaceState(null, null, PUBLIC_URL + '/');
   }, []);
 
   const [members, setMembers] = React.useState(['Neo', 'Anderson', 'Morpheus']);
