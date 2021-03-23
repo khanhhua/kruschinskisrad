@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://www.khanhhua.com/kruschinskisrad/static/css/main.17940f00.chunk.css",
-    "main.js": "https://www.khanhhua.com/kruschinskisrad/static/js/main.3a78e019.chunk.js",
-    "main.js.map": "https://www.khanhhua.com/kruschinskisrad/static/js/main.3a78e019.chunk.js.map",
+    "main.js": "https://www.khanhhua.com/kruschinskisrad/static/js/main.960649de.chunk.js",
+    "main.js.map": "https://www.khanhhua.com/kruschinskisrad/static/js/main.960649de.chunk.js.map",
     "runtime-main.js": "https://www.khanhhua.com/kruschinskisrad/static/js/runtime-main.31bcd0ab.js",
     "runtime-main.js.map": "https://www.khanhhua.com/kruschinskisrad/static/js/runtime-main.31bcd0ab.js.map",
     "static/js/2.30dfdb91.chunk.js": "https://www.khanhhua.com/kruschinskisrad/static/js/2.30dfdb91.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.31bcd0ab.js",
     "static/js/2.30dfdb91.chunk.js",
     "static/css/main.17940f00.chunk.css",
-    "static/js/main.3a78e019.chunk.js"
+    "static/js/main.960649de.chunk.js"
   ]
 }
