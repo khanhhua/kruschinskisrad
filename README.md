@@ -1,6 +1,6 @@
 # Kruschinskis Rad
 
-## Spin
+## Spin!
 
 When it comes to tough decision makings, like "Who shares screen today, cuz I did it yesterday already and so did everyone of you!", hands off and let the [Kruschinskis Rad](https://www.khanhhua.com/kruschinskisrad/) do it for you and your team.
 
